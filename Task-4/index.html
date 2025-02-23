@@ -1,0 +1,169 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovateX - Home</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #000;
+            color: white;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #f4a261;
+        }
+        #hero {
+            background: url('conference-banner.jpg') no-repeat center center/cover;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        #hero h2 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        #hero p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+        .btn {
+            background: #f4a261;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #e76f51;
+        }
+        .countdown {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+        .speakers-section {
+            padding: 50px;
+            text-align: center;
+        }
+        .speakers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+        .speaker {
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .speaker img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        footer {
+            background: #000;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function countdownTimer() {
+            const eventDate = new Date('2025-11-10T00:00:00').getTime();
+            setInterval(() => {
+                const now = new Date().getTime();
+                const timeLeft = eventDate - now;
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById('countdown').innerHTML = `${days} Days ${hours} Hours`;
+            }, 1000);
+        }
+        window.onload = countdownTimer;
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="speakers.html">Speakers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="hero">
+            <h2>Welcome to InnovateX</h2>
+            <p>The premier annual tech conference for innovation and technology enthusiasts.</p>
+            <button class="btn">Get Tickets</button>
+            <div class="countdown" id="countdown"></div>
+        </section>
+
+        <section class="speakers-section">
+            <h2>Meet Our Speakers</h2>
+            <div class="speakers-container">
+                <div class="speaker">
+                    <img src="speaker1.jpg" alt="Speaker 1">
+                    <h3>Jane Doe</h3>
+                    <p>CEO of TechWorld</p>
+                </div>
+                <div class="speaker">
+                    <img src="speaker2.jpg" alt="Speaker 2">
+                    <h3>John Smith</h3>
+                    <p>AI Researcher</p>
+                </div>
+                <div class="speaker">
+                    <img src="speaker3.jpg" alt="Speaker 3">
+                    <h3>Johnson</h3>
+                    <p>Cloud Computing Expert</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 InnovateX. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
